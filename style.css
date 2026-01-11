@@ -1,0 +1,171 @@
+/* RESET & BASICS */
+:root {
+    --primary: #0f172a; /* Navy */
+    --accent: #2563eb;  /* Royal Blue */
+    --text: #334155;    /* Slate */
+    --bg: #ffffff;
+    --light-bg: #f8fafc;
+    --border: #e2e8f0;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body { font-family: 'Inter', sans-serif; color: var(--text); line-height: 1.6; }
+
+/* LAYOUT */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
+.section { padding: 100px 0; }
+.bg-light { background-color: var(--light-bg); }
+.text-center { text-align: center; }
+.section-header { text-align: center; max-width: 700px; margin: 0 auto 60px; }
+.section-header p { color: #64748b; font-size: 1.1rem; }
+
+/* HERO */
+.hero {
+    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    color: white;
+    padding: 40px 0 140px;
+}
+.hero nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 80px;
+}
+.hero .logo { font-size: 1.5rem; font-weight: 700; letter-spacing: -1px; }
+.nav-links a { color: rgba(255,255,255,0.8); text-decoration: none; margin-left: 20px; font-weight: 500; transition: color 0.2s; }
+.nav-links a:hover { color: white; }
+
+.hero-content { max-width: 700px; }
+.hero h1 { font-size: 3.5rem; font-weight: 800; line-height: 1.1; margin-bottom: 25px; }
+.hero p { font-size: 1.25rem; opacity: 0.9; margin-bottom: 35px; max-width: 600px; }
+
+/* BUTTONS */
+.btn-primary {
+    display: inline-block;
+    background-color: var(--accent);
+    color: white;
+    padding: 15px 35px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+}
+.btn-primary:hover { background-color: #1d4ed8; transform: translateY(-2px); }
+
+.btn-nav {
+    border: 1px solid rgba(255,255,255,0.3);
+    padding: 8px 20px;
+    border-radius: 4px;
+}
+.btn-nav:hover { background: white; color: var(--primary) !important; }
+
+/* SERVICES GRID */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    margin-top: 60px;
+}
+.card {
+    background: white;
+    padding: 40px 30px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-5px); box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); border-color: var(--accent); }
+.card .icon { font-size: 2.5rem; margin-bottom: 20px; }
+.card h3 { font-size: 1.25rem; color: var(--primary); margin-bottom: 15px; font-weight: 700; }
+.card p { font-size: 0.95rem; color: #64748b; }
+
+/* ABOUT SECTION & PROFILE IMAGE */
+.split { display: flex; gap: 80px; align-items: center; }
+.content { flex: 1; }
+.profile-container { flex: 1; display: flex; justify-content: center; }
+
+/* IMPORTANT: 
+   1. Save your cropped headshot image into your project folder.
+   2. Rename it to 'profile.jpg' (or update the filename below).
+*/
+.profile-image {
+    width: 350px;
+    height: 350px;
+    background-image: url('profile.jpg'); /* <-- UPDATE THIS FILENAME */
+    background-size: cover;
+    background-position: center;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.content .lead { font-size: 1.25rem; font-weight: 500; color: var(--primary); margin-bottom: 25px; }
+.credentials { list-style: none; margin-top: 20px; }
+.credentials li { margin-bottom: 10px; font-weight: 600; color: var(--primary); }
+.link-text { color: var(--accent); text-decoration: none; font-weight: 600; }
+
+/* PRICING SECTION */
+.pricing-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; align-items: flex-start; }
+.pricing-card {
+    background: white;
+    padding: 40px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+    position: relative;
+}
+.pricing-card.popular {
+    border: 2px solid var(--accent);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+    transform: scale(1.05);
+    z-index: 1;
+}
+.pricing-card .badge {
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--accent);
+    color: white;
+    padding: 5px 15px;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    font-weight: 600;
+}
+.pricing-card h3 { font-size: 1.5rem; color: var(--primary); margin-bottom: 15px; }
+.pricing-card .price { font-size: 2rem; font-weight: 700; color: var(--primary); margin-bottom: 15px; }
+.pricing-card ul { list-style: none; text-align: left; margin: 30px 0; }
+.pricing-card li { padding: 10px 0; border-bottom: 1px solid var(--border); font-size: 0.95rem; }
+.pricing-card li:last-child { border-bottom: none; }
+
+/* CONTACT FORM */
+.contact-split { align-items: flex-start; }
+.contact-form-container { flex: 1; background: white; padding: 40px; border-radius: 12px; box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1); }
+.form-group { margin-bottom: 20px; }
+.form-group label { display: block; margin-bottom: 8px; font-weight: 600; color: var(--primary); font-size: 0.9rem; }
+.form-group input, .form-group textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    font-family: inherit;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+.form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--accent); }
+
+/* FOOTER */
+footer { padding: 40px 0; border-top: 1px solid var(--border); margin-top: 40px; color: #94a3b8; font-size: 0.9rem; }
+
+/* MOBILE */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 2.5rem; }
+    .hero nav { flex-direction: column; gap: 20px; }
+    .nav-links { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
+    .nav-links a { margin-left: 0; }
+    .split { flex-direction: column; gap: 40px; }
+    .profile-image { width: 280px; height: 280px; }
+    .pricing-card.popular { transform: none; }
+}
