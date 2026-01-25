@@ -1,19 +1,18 @@
 # 📘 H-Squared Project Blueprint (Codex)
 
 **Project:** H-Squared Intelligence
-**Theme:** "Growth & Automation" (Solid Nav, Charcoal, Gold)
-**Services:** Fractional Strategy, AI Automation, Workforce Training
-**Pricing Model:** Tiered (Assessment -> Hybrid -> Retainer)
+**Target Market:** SMBs (10-200 Employees)
+**Messaging:** "Stop Drowning in Chaos. Scale with Discipline."
+**Tech Stack:** HTML5, CSS3, JS (Formspree AJAX)
 
 ---
 
 ## 📸 Image Instructions
-1.  **Placement:** Place `profile.jpg` in the root folder alongside `index.html`.
-2.  **Styling:** The CSS class `.round-profile` will automatically crop it into a circle and focus on the top (face).
+1.  **Headshot:** Ensure file is named **`profile.jpg`**.
+2.  **Logo:** Ensure file is named **`logo.png`** (Transparent).
 
 ## 🚀 Deployment Checklist
-1.  Replace `index.html` with new code.
-2.  Replace `style.css` with new code.
-3.  Rename image to `profile.jpg`.
-4.  Update Formspree ID in `index.html` (look for `YOUR_FORM_ID`).
-5.  `git add .` -> `git commit -m "Pivot to Growth Theme"` -> `git push`.
+1.  **Update `index.html`:** Paste new code with AJAX form script.
+2.  **Update `style.css`:** Paste new code with form status styles.
+3.  **Formspree:** Verify ID in `index.html`.
+4.  **Push:** `git add .` -> `git commit -m "Final Launch"` -> `git push`.
