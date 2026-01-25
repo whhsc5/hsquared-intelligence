@@ -69,12 +69,12 @@
                 <div class="card">
                     <div class="icon">♟️</div>
                     <h3>STRATEGY & CLARITY</h3>
-                    <p><strong>The Pain:</strong> "We are chasing too many rabbits."<br><strong>The Fix:</strong> I use proven frameworks to define exactly where to play and how to win, focusing your resources on the few KPIs that actually matter.</p>
+                    <p><strong>The Pain:</strong> "We are spread thin across too many conflicting priorities."<br><strong>The Fix:</strong> I use proven frameworks to define exactly where to play and how to win, focusing your resources on the few KPIs that actually matter.</p>
                 </div>
                 <div class="card">
                     <div class="icon">⚡</div>
                     <h3>AUTOMATION & SPEED</h3>
-                    <p><strong>The Pain:</strong> "My team is drowning in admin work."<br><strong>The Fix:</strong> I build custom bots (n8n/Python) to automate repetitive workflows. Stop hiring more people to do work machines should be doing.</p>
+                    <p><strong>The Pain:</strong> "My team is drowning in low-value admin work."<br><strong>The Fix:</strong> I build custom bots (n8n/Python) to automate repetitive workflows. Stop hiring more people to do work machines should be doing.</p>
                 </div>
                 <div class="card">
                     <div class="icon">🧠</div>
@@ -173,12 +173,12 @@
                 <p>I focus on businesses with 10-200 employees facing scaling challenges. I review every application personally.</p>
             </div>
             
-            <form id="my-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" class="form-box">
+            <form id="my-form" action="https://formspree.io/f/xzdrzozv" method="POST" class="form-box">
                 <label>Name</label>
-                <input type="text" name="name" required>
+                <input type="text" name="name" required placeholder="John Doe">
                 
                 <label>Email</label>
-                <input type="email" name="email" required>
+                <input type="email" name="email" required placeholder="john@company.com">
                 
                 <label>Interested Package</label>
                 <select name="package">
@@ -188,12 +188,13 @@
                 </select>
                 
                 <label>Briefly describe your business challenge</label>
-                <textarea name="message" rows="3" required></textarea>
+                <textarea name="message" rows="3" required placeholder="Example: We are struggling with manual data entry..."></textarea>
                 
                 <label>Phone Number (Optional)</label>
-                <input type="tel" name="phone">
+                <input type="tel" name="phone" placeholder="(555) 123-4567">
 
                 <button id="my-form-button" type="submit" class="btn-primary full-width">Submit Application</button>
+                
                 <div id="form-status"></div>
             </form>
         </div>
@@ -212,7 +213,13 @@
         async function handleSubmit(event) {
           event.preventDefault();
           var status = document.getElementById("form-status");
+          var btn = document.getElementById("my-form-button");
           var data = new FormData(event.target);
+          
+          // Visual feedback that it's sending
+          btn.innerHTML = "Sending...";
+          btn.disabled = true;
+
           fetch(event.target.action, {
             method: form.method,
             body: data,
@@ -221,23 +228,27 @@
             }
           }).then(response => {
             if (response.ok) {
-              status.innerHTML = "Thanks for your submission! I will review and be in touch shortly.";
+              status.innerHTML = "✓ Received! I will review and be in touch shortly.";
               status.className = "success-message";
+              btn.innerHTML = "Sent";
               form.reset();
             } else {
               response.json().then(data => {
                 if (Object.hasOwn(data, 'errors')) {
                   status.innerHTML = data["errors"].map(error => error["message"]).join(", ");
-                  status.className = "error-message";
                 } else {
-                  status.innerHTML = "Oops! There was a problem submitting your form";
-                  status.className = "error-message";
+                  status.innerHTML = "Oops! There was a problem submitting your form.";
                 }
+                status.className = "error-message";
+                btn.innerHTML = "Try Again";
+                btn.disabled = false;
               })
             }
           }).catch(error => {
-            status.innerHTML = "Oops! There was a problem submitting your form";
+            status.innerHTML = "Oops! There was a problem submitting your form.";
             status.className = "error-message";
+            btn.innerHTML = "Try Again";
+            btn.disabled = false;
           });
         }
         form.addEventListener("submit", handleSubmit);
