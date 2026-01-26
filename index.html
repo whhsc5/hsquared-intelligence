@@ -126,7 +126,7 @@
                         <li>Identification of 3 High-Value Automations</li>
                         <li><strong>Outcome:</strong> A clear implementation roadmap.</li>
                     </ul>
-                    <a href="#contact" class="btn-outline">Inquire for Blueprint</a>
+                    <a href="#contact" onclick="selectPackage('The Blueprint ($1,000)')" class="btn-outline">Inquire for Blueprint</a>
                 </div>
 
                 <div class="price-card featured">
@@ -143,7 +143,7 @@
                         <li>Team AI Training Workshop (90 Mins)</li>
                         <li><strong>Outcome:</strong> Tangible efficiency gains.</li>
                     </ul>
-                    <a href="#contact" class="btn-primary full-width">Inquire for Growth</a>
+                    <a href="#contact" onclick="selectPackage('Growth & Build ($4,500)')" class="btn-primary full-width">Inquire for Growth</a>
                 </div>
 
                 <div class="price-card">
@@ -159,7 +159,7 @@
                         <li>Continuous Automation Builds & Tweaks</li>
                         <li>Owner-Level Performance Dashboards</li>
                     </ul>
-                    <a href="#contact" class="btn-primary full-width">Apply for Partner</a>
+                    <a href="#contact" onclick="selectPackage('Transformation Partner ($6,000/mo)')" class="btn-outline full-width">Apply for Partner</a>
                 </div>
 
             </div>
@@ -194,7 +194,6 @@
                 <input type="tel" name="phone" placeholder="(555) 123-4567">
 
                 <button id="my-form-button" type="submit" class="btn-primary full-width">Submit Application</button>
-                
                 <div id="form-status"></div>
             </form>
         </div>
@@ -204,10 +203,24 @@
         <div class="container footer-content">
             <p>&copy; 2026 H-Squared Intelligence.</p>
             <p class="geo-text">Serving Toronto, Oakville, and the Greater Toronto Area (GTA).</p>
+            <p style="margin-top: 10px;">
+                <a href="mailto:h2intelligencehq@gmail.com" style="color: #666; text-decoration: none; font-size: 0.85rem;">
+                    h2intelligencehq@gmail.com
+                </a>
+            </p>
         </div>
     </footer>
 
     <script>
+        // --- AUTO-SELECT PACKAGE FUNCTION ---
+        function selectPackage(packageName) {
+            var dropdown = document.querySelector('select[name="package"]');
+            if(dropdown) {
+                dropdown.value = packageName;
+            }
+        }
+
+        // --- FORM SUBMISSION LOGIC ---
         var form = document.getElementById("my-form");
         
         async function handleSubmit(event) {
@@ -216,7 +229,6 @@
           var btn = document.getElementById("my-form-button");
           var data = new FormData(event.target);
           
-          // Visual feedback that it's sending
           btn.innerHTML = "Sending...";
           btn.disabled = true;
 
