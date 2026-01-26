@@ -30,19 +30,8 @@ body { font-family: 'Manrope', sans-serif; color: var(--text); line-height: 1.6;
 }
 .nav-flex { display: flex; justify-content: space-between; align-items: center; }
 
-.logo { 
-    display: flex; 
-    align-items: center; 
-    padding: 0; 
-    border: none;
-}
-
-.nav-logo-img {
-    height: 65px; 
-    width: auto;
-    display: block;
-    filter: invert(1) brightness(2); 
-}
+.logo { display: flex; align-items: center; padding: 0; border: none; }
+.nav-logo-img { height: 65px; width: auto; display: block; filter: invert(1) brightness(2); }
 
 .nav-links a { color: #b0b0b0; text-decoration: none; margin-left: 24px; font-weight: 600; font-size: 0.9rem; transition: 0.2s; }
 .nav-links a:hover { color: var(--gold); }
@@ -82,7 +71,6 @@ body { font-family: 'Manrope', sans-serif; color: var(--text); line-height: 1.6;
     padding: 35px; 
     border-radius: 4px; 
     transition: 0.3s; 
-    /* Flex alignment */
     display: flex;
     flex-direction: column;
     height: 100%; 
@@ -98,10 +86,18 @@ body { font-family: 'Manrope', sans-serif; color: var(--text); line-height: 1.6;
     font-weight: 700; 
     color: var(--dark); 
     text-transform: uppercase; 
-    /* Reserved height for alignment */
     min-height: 3rem; 
     display: flex;
     align-items: center; 
+}
+
+/* NEW ALIGNMENT CLASSES */
+.pain-block {
+    min-height: 55px; /* MAGIC NUMBER: Forces all 'Pain' sections to be equal height */
+    margin-bottom: 12px;
+}
+.fix-block {
+    flex-grow: 1; /* Pushes content down evenly */
 }
 
 /* --- 7. PRICING --- */
@@ -117,7 +113,7 @@ body { font-family: 'Manrope', sans-serif; color: var(--text); line-height: 1.6;
 .features li { padding: 10px 0; border-bottom: 1px solid #f9f9f9; }
 .features li strong { color: var(--dark); font-weight: 700; }
 
-/* --- 8. ABOUT (CENTERED PROFILE) --- */
+/* --- 8. ABOUT --- */
 .profile-img-center {
     width: 250px;
     height: 250px;
@@ -125,7 +121,7 @@ body { font-family: 'Manrope', sans-serif; color: var(--text); line-height: 1.6;
     object-fit: cover;
     object-position: top;
     border: 4px solid var(--gold);
-    margin: 0 auto 30px; /* Center perfectly */
+    margin: 0 auto 30px; 
     display: block;
 }
 .gold-label { color: var(--gold); font-weight: 800; letter-spacing: 2px; font-size: 0.85rem; display: block; margin-bottom: 15px; }
@@ -135,22 +131,21 @@ body { font-family: 'Manrope', sans-serif; color: var(--text); line-height: 1.6;
 .credentials-row { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; margin-top: 30px; }
 .pill-cred { border: 1px solid var(--gold); color: var(--gold); padding: 5px 15px; border-radius: 50px; font-size: 0.85rem; font-weight: 600; }
 
-/* --- 9. FORM & STATUS --- */
+/* --- 9. FORM --- */
 .form-box { background: var(--white); padding: 40px; border: 1px solid #eee; border-radius: 4px; box-shadow: 0 5px 20px rgba(0,0,0,0.03); }
 .form-box label { display: block; margin: 15px 0 6px; font-weight: 700; font-size: 0.85rem; text-transform: uppercase; color: #888; }
 .form-box input, .form-box select, .form-box textarea { width: 100%; padding: 12px; border: 1px solid #ddd; border-radius: 2px; font-family: inherit; font-size: 1rem; }
 .form-box input:focus, .form-box select:focus, .form-box textarea:focus { outline: none; border-color: var(--gold); }
-
 #form-status { margin-top: 20px; text-align: center; font-weight: 700; font-size: 0.9rem; min-height: 1.6em; }
 .success-message { color: #28a745; padding: 10px; background: #e8f5e9; border-radius: 4px; }
 .error-message { color: #dc3545; background: #f8d7da; padding: 10px; border-radius: 4px; }
 
-/* --- 10. FOOTER & GEO --- */
+/* --- 10. FOOTER --- */
 footer { padding: 40px 0; border-top: 1px solid #eee; background: #fafafa; text-align: center; }
 .footer-content p { margin-bottom: 10px; font-size: 0.9rem; color: #666; }
 .geo-text { font-size: 0.8rem; color: #999; letter-spacing: 0.5px; }
 
-/* --- 11. MOBILE MEDIA QUERIES --- */
+/* --- 11. MOBILE --- */
 @media (max-width: 768px) {
     .nav-flex { flex-direction: column; gap: 15px; }
     .hero-block h1 { font-size: 2.4rem; }
