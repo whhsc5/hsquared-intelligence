@@ -93,11 +93,12 @@ body { font-family: 'Manrope', sans-serif; color: var(--text); line-height: 1.6;
 
 /* NEW ALIGNMENT CLASSES */
 .pain-block {
-    min-height: 55px; /* MAGIC NUMBER: Forces all 'Pain' sections to be equal height */
+    /* INCREASED HEIGHT TO FIX 3-LINE MISALIGNMENT */
+    min-height: 85px; 
     margin-bottom: 12px;
 }
 .fix-block {
-    flex-grow: 1; /* Pushes content down evenly */
+    flex-grow: 1; 
 }
 
 /* --- 7. PRICING --- */

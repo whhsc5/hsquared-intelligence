@@ -194,6 +194,12 @@
                 
                 <label>Email</label>
                 <input type="email" name="email" required placeholder="john@company.com">
+
+                <label>Business Name</label>
+                <input type="text" name="business_name" required placeholder="Acme Corp">
+
+                <label>Company Website</label>
+                <input type="url" name="website" required placeholder="https://www.acmecorp.com">
                 
                 <label>Interested Package</label>
                 <select name="package">
@@ -227,12 +233,17 @@
     </footer>
 
     <script>
+        // --- AUTO-SELECT PACKAGE FUNCTION ---
         function selectPackage(packageName) {
             var dropdown = document.querySelector('select[name="package"]');
-            if(dropdown) { dropdown.value = packageName; }
+            if(dropdown) {
+                dropdown.value = packageName;
+            }
         }
 
+        // --- FORM SUBMISSION LOGIC ---
         var form = document.getElementById("my-form");
+        
         async function handleSubmit(event) {
           event.preventDefault();
           var status = document.getElementById("form-status");
@@ -245,7 +256,9 @@
           fetch(event.target.action, {
             method: form.method,
             body: data,
-            headers: { 'Accept': 'application/json' }
+            headers: {
+                'Accept': 'application/json'
+            }
           }).then(response => {
             if (response.ok) {
               status.innerHTML = "✓ Received! I will review and be in touch shortly.";
