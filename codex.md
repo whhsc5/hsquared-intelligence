@@ -2,7 +2,7 @@
 
 **Project:** H-Squared Intelligence
 **Target Market:** SMBs (10-200 Employees)
-**Messaging:** "Stop Drowning in Chaos. Scale with Discipline."
+**Messaging:** "Stop Drowning in Chaos. Scale with Discipline & AI. (Toronto & GTA Premier Partner)"
 **Tech Stack:** HTML5, CSS3, JS (Formspree AJAX)
 
 ---
